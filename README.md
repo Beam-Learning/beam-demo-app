@@ -6,8 +6,6 @@
 
 ## 📦 Setup Instructions
 
-### 1. Clone and Install
-
 ```bash
 git clone https://your-repo-url/beamstudio-app.git
 cd beamstudio-app
