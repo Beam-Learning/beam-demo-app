@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API_LOGIN_URL, API_ME_URL } from "../../utils/endpoints";
+import AuthPanel from "../../components/auth-panel/auth-panel";
 
 const Login = () => {
     const [apiKey, setApiKey] = useState("");
@@ -32,20 +33,28 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center h-screen bg-gray-100">
-            <div className="bg-white p-6 rounded shadow-md w-full max-w-sm">
-                <h2 className="text-xl font-bold mb-4">Login</h2>
-                <input
-                    type="text"
-                    placeholder="Enter API Key"
-                    value={apiKey}
-                    onChange={(e) => setApiKey(e.target.value)}
-                    className="w-full p-2 border rounded mb-4"
-                />
-                <button onClick={handleLogin} className="w-full bg-blue-500 text-white p-2 rounded">
-                    {isLoading ? "Loading..." : "Login"}
-                </button>
-                {error && <p className="text-red-500 text-sm">{error}</p>}
+        <div className="bg-theme flex flex-row">
+            <div className="hidden w-1/2 flex-col md:flex">
+                <AuthPanel />
+            </div>
+
+            <div className="flex h-screen w-full flex-col md:w-1/2">
+                <div className="flex h-full flex-col items-center justify-center gap-6">
+                    <div className="bg-card p-6 rounded-lg shadow-md w-full max-w-sm border border-border">
+                        <h2 className="text-xl font-bold mb-4 text-foreground">Login</h2>
+                        <input
+                            type="text"
+                            placeholder="Enter API Key"
+                            value={apiKey}
+                            onChange={(e) => setApiKey(e.target.value)}
+                            className="w-full p-2 border border-input rounded bg-background text-foreground"
+                        />
+                        {error && <p className="text-destructive text-sm mt-1">{error}</p>}
+                        <button onClick={handleLogin} disabled={!apiKey || isLoading} className="mt-4 w-full small inline-flex items-center justify-center whitespace-nowrap rounded-md border outline-none transition duration-150 ease-in-out focus:border-foreground-50 active:focus:border-foreground-50 disabled:cursor-not-allowed disabled:opacity-50 border-none border-primary bg-primary text-foreground hover:bg-primary-90 disabled:hover:bg-primary h-10 px-4 py-2">
+                            {isLoading ? "Loading..." : "Login"}
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     )

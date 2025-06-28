@@ -4,7 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import TaskList from "./pages/TasksList";
 import TaskDetails from "./pages/TaskDetails";
 import WorkspaceSelect from "./pages/WorkspaceSelect";
-import { DashboardProvider } from "./context/DashboardContext";
+import { DashboardProvider } from "./contexts/DashboardContext";
 
 
 const ProtectedRoute = ({ children }) => {

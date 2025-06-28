@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { useDashboard } from '../../context/DashboardContext';
+import { useDashboard } from '../../contexts/DashboardContext';
 import axios from 'axios';
 import { API_AGENT_TASKS_LIST_URL } from '../../utils/endpoints';
 import CreateTaskModal from '../CreateTaskModal';
@@ -57,16 +57,16 @@ const TasksList = () => {
     };
 
     if (!selectedAgent) {
-        return <p>Please select an agent to view tasks.</p>;
+        return <p className='text-foreground'>Please select an agent to view tasks.</p>;
     }
 
     return (
         <>
             <div className="flex items-center justify-between mb-4">
-                <h1 className="text-2xl font-bold">Tasks for {selectedAgent.name}</h1>
+                <h3 className='text-foreground'>Tasks for {selectedAgent.name}</h3>
                 <button
                     onClick={() => setIsModalOpen(true)}
-                    className="bg-blue-600 text-white px-4 py-2 rounded text-sm hover:bg-blue-700"
+                    className="small inline-flex items-center justify-center whitespace-nowrap rounded-md border outline-none transition duration-150 ease-in-out focus:border-foreground-50 active:focus:border-foreground-50 disabled:cursor-not-allowed disabled:opacity-50 border-none border-primary bg-primary text-foreground hover:bg-primary-90 disabled:hover:bg-primary h-10 px-4 py-2"
                 >
                     Create New Task
                 </button>
@@ -77,29 +77,29 @@ const TasksList = () => {
                         <li
                             key={task.id}
                             onClick={() => navigate(`/dashboard/task/${task.id}`)}
-                            className="bg-white p-4 rounded shadow"
+                            className="bg-card p-4 rounded shadow border border-border hover:shadow-md transition-shadow cursor-pointer"
                         >
                             <div className="flex justify-between items-start mb-1">
-                                <h3 className="font-bold text-lg">{task.customId}</h3>
+                                <h3 className="text-foreground font-bold text-lg">{task.customId}</h3>
                                 <span className={`text-xs font-medium px-2 py-1 rounded ${{
-                                        "Queued": "bg-gray-200 text-gray-800",
-                                        "In progress": "bg-blue-100 text-blue-800",
-                                        "Completed": "bg-green-100 text-green-800",
-                                        "Failed": "bg-red-100 text-red-800",
-                                        "User input required": "bg-yellow-100 text-yellow-800",
-                                        "User consent required": "bg-indigo-100 text-indigo-800",
-                                    }[task.status] || "bg-gray-100 text-gray-600"
+                                        "Queued": "bg-muted text-muted-foreground",
+                                        "In progress": "bg-primary/10 text-primary",
+                                        "Completed": "bg-green-500/10 text-green-700 dark:text-green-400",
+                                        "Failed": "bg-destructive/10 text-destructive",
+                                        "User input required": "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400",
+                                        "User consent required": "bg-purple-500/10 text-purple-700 dark:text-purple-400",
+                                    }[task.status] || "bg-muted text-muted-foreground"
                                     }`}>
                                     {getStatusIcon(task.status)} {task.status?.replace(/_/g, " ")}
                                 </span>
                             </div>
 
-                            <p>{task.taskObjective}</p>
+                            <p className='text-foreground'>{task.taskObjective}</p>
                         </li>
                     ))}
                 </ul>
             ) : (
-                <p>No tasks found.</p>
+                <p className='text-foreground'>No tasks found.</p>
             )}
 
             {isModalOpen && (

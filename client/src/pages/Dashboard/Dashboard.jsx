@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { API_AGENT_LIST_URL } from "../../utils/endpoints";
-import { useDashboard } from "../../context/DashboardContext";
+import { useDashboard } from "../../contexts/DashboardContext";
 import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
@@ -30,14 +30,14 @@ const Dashboard = () => {
   return (
     <div className="flex h-screen">
       {/* Sidebar */}
-      <aside className="w-64 bg-gray-800 text-white flex flex-col justify-between h-full p-4">
+      <aside className="bg-transparent w-64 text-card-foreground flex flex-col justify-between h-full p-4 border-r border-border">
         <div className="overflow-y-auto">
           <h2 className="text-2xl font-bold mb-4">Agents</h2>
           {agents?.agents?.map((agent) => (
             <button
               key={agent.id}
               onClick={() => setSelectedAgent(agent)}
-              className={`block w-full text-left p-2 rounded mb-2 ${selectedAgent?.id === agent.id ? "bg-blue-600" : "bg-gray-700"
+              className={`block w-full text-left p-2 rounded mb-2 ${selectedAgent?.id === agent.id ? "bg-primary text-foreground" : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                 }`}
             >
               {agent.name}
@@ -46,13 +46,13 @@ const Dashboard = () => {
         </div>
 
 
-        <div className="pt-4 border-t border-gray-700 mt-4">
+        <div className="pt-4 border-t border-border mt-4">
           <button
             onClick={() => {
               localStorage.removeItem("selectedWorkspaceId");
               window.location.href = "/select-workspace";
             }}
-            className="w-full bg-yellow-500 hover:bg-yellow-600 text-white text-sm py-2 px-3 rounded mb-2"
+            className="w-full bg-secondary hover:bg-accent/90 text-accent-foreground text-sm py-2 px-3 rounded mb-2"
           >
             Change Workspace
           </button>
@@ -62,7 +62,7 @@ const Dashboard = () => {
               localStorage.clear();
               window.location.href = "/";
             }}
-            className="w-full bg-red-500 hover:bg-red-600 text-white text-sm py-2 px-3 rounded"
+            className="w-full bg-destructive hover:bg-destructive/90 text-destructive-foreground text-sm py-2 px-3 rounded"
           >
             Logout
           </button>
@@ -70,7 +70,7 @@ const Dashboard = () => {
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 p-6 bg-gray-100 overflow-y-auto">
+      <main className="flex-1 p-6 overflow-y-auto">
         <Outlet />
       </main>
     </div>

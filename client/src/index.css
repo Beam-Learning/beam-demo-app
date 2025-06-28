@@ -1,41 +1,288 @@
+@import url("/assets/Satoshi_Complete/Fonts/WEB/css/satoshi.css");
 @import "tailwindcss";
 
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  /* color-scheme: light dark; */
-  /* color: rgba(255, 255, 255, 0.87);
-  background-color: #242424; */
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.dark .bg-theme {
+    background: radial-gradient(
+            45% 250px at 50% 0%,
+            rgba(136, 145, 243, 0.15) 18.31%,
+            rgba(0, 4, 96, 0) 92.85%
+        ),
+        hsl(223 84% 5%/ 1);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@theme {
+        --color-background: hsl(223 84% 5%/ 1);
+        --color-background-100: hsl(223 84% 5%/ 1);
+        --color-background-90: hsl(223 84% 5%/ 0.9);
+        --color-background-80: hsl(223 84% 5%/ 0.8);
+        --color-background-70: hsl(223 84% 5%/ 0.7);
+        --color-background-60: hsl(223 84% 5%/ 0.6);
+
+        --color-foreground: hsl(210 40% 98%/ 1);
+        --color-foreground-100: hsl(210 40% 98%/ 1);
+        --color-foreground-90: hsl(210 40% 98%/ 0.9);
+        --color-foreground-80: hsl(210 40% 98%/ 0.8);
+        --color-foreground-50: hsl(210 40% 98%/ 0.5);
+
+        --color-card: hsl(223 84% 5% / 1);
+        --color-card-100: hsl(223 84% 5% / 1);
+        --color-card-90: hsl(223 84% 5% / 0.9);
+        --color-card-80: hsl(223 84% 5% / 0.8);
+
+        --color-card-foreground: hsl(210 40% 98% / 1);
+        --color-card-foreground-100: hsl(210 40% 98% / 1);
+        --color-card-foreground-90: hsl(210 40% 98% / 0.9);
+        --color-card-foreground-80: hsl(210 40% 98% / 0.8);
+
+        --color-popover: hsl(223 84% 5% / 1);
+        --color-popover-100: hsl(223 84% 5% / 1);
+        --color-popover-90: hsl(223 84% 5% / 0.9);
+        --color-popover-80: hsl(223 84% 5% / 0.8);
+
+        --color-popover-foreground: hsl(210 40% 98% / 1);
+        --color-popover-foreground-100: hsl(210 40% 98% / 1);
+        --color-popover-foreground-90: hsl(210 40% 98% / 0.9);
+        --color-popover-foreground-80: hsl(210 40% 98% / 0.8);
+
+        --color-primary: hsl(217 100% 50% / 1);
+        --color-primary-100: hsl(217 100% 50% / 1);
+        --color-primary-90: hsl(217 100% 50% / 0.9);
+        --color-primary-80: hsl(217 100% 50% / 0.8);
+        --color-primary-50: hsl(217 100% 50% / 0.5);
+        --color-primary-20: hsl(217 100% 50% / 0.2);
+        --color-primary-10: hsl(217 100% 50% / 0.1);
+
+        --color-primary-foreground: hsl(222 47% 11% / 1);
+        --color-primary-foreground-100: hsl(222 47% 11% / 1);
+        --color-primary-foreground-90: hsl(222 47% 11% / 0.9);
+        --color-primary-foreground-80: hsl(222 47% 11% / 0.8);
+
+        --color-secondary: hsl(217 33% 17% / 1);
+        --color-secondary-100: hsl(217 33% 17% / 1);
+        --color-secondary-90: hsl(217 33% 17% / 0.9);
+        --color-secondary-80: hsl(217 33% 17% / 0.8);
+
+        --color-secondary-foreground: hsl(210 40% 98% / 1);
+        --color-secondary-foreground-100: hsl(210 40% 98% / 1);
+        --color-secondary-foreground-90: hsl(210 40% 98% / 0.9);
+        --color-secondary-foreground-80: hsl(210 40% 98% / 0.8);
+
+        --color-muted: hsl(217 33% 17% / 1);
+        --color-muted-100: hsl(217 33% 17% / 1);
+        --color-muted-90: hsl(217 33% 17% / 0.9);
+        --color-muted-80: hsl(217 33% 17% / 0.8);
+        --color-muted-50: hsl(217 33% 17% / 0.5);
+        --color-muted-40: hsl(217 33% 17% / 0.4);
+        --color-muted-20: hsl(217 33% 17% / 0.2);
+        --color-muted-10: hsl(217 33% 17% / 0.1);
+
+        --color-muted-foreground: hsl(215 20% 65% / 1);
+        --color-muted-foreground-100: hsl(215 20% 65% / 1);
+        --color-muted-foreground-90: hsl(215 20% 65% / 0.9);
+        --color-muted-foreground-80: hsl(215 20% 65% / 0.8);
+
+        --color-accent: hsl(217 33% 17% / 1);
+        --color-accent-100: hsl(217 33% 17% / 1);
+        --color-accent-90: hsl(217 33% 17% / 0.9);
+        --color-accent-80: hsl(217 33% 17% / 0.8);
+        --color-accent-50: hsl(217 33% 17% / 0.5);
+
+        --color-accent-foreground: hsl(210 40% 98% / 1);
+        --color-accent-foreground-100: hsl(210 40% 98% / 1);
+        --color-accent-foreground-90: hsl(210 40% 98% / 0.9);
+        --color-accent-foreground-80: hsl(210 40% 98% / 0.8);
+
+        --color-destructive: hsl(0 63% 31% / 1);
+        --color-destructive-100: hsl(0 63% 31% / 1);
+        --color-destructive-90: hsl(0 63% 31% / 0.9);
+        --color-destructive-80: hsl(0 63% 31% / 0.8);
+        --color-destructive-50: hsl(0 63% 31% / 0.5);
+
+        --color-destructive-foreground: hsl(210 40% 98% / 1);
+        --color-destructive-foreground-100: hsl(210 40% 98% / 1);
+        --color-destructive-foreground-90: hsl(210 40% 98% / 0.9);
+        --color-destructive-foreground-80: hsl(210 40% 98% / 0.8);
+
+        --color-border: hsl(217 33% 17% / 1);
+        --color-border-100: hsl(217 33% 17% / 1);
+        --color-border-90: hsl(217 33% 17% / 0.9);
+        --color-border-80: hsl(217 33% 17% / 0.8);
+
+        --color-input: hsl(217 33% 17% / 1);
+        --color-input-100: hsl(217 33% 17% / 1);
+        --color-input-90: hsl(217 33% 17% / 0.9);
+        --color-input-80: hsl(217 33% 17% / 0.8);
+
+        --color-ring: hsl(224 76% 48% / 1);
+        --color-ring-100: hsl(224 76% 48% / 1);
+        --color-ring-90: hsl(224 76% 48% / 0.9);
+        --color-ring-80: hsl(224 76% 48% / 0.8);
+
+        --color-chart: hsl(220 70% 50%);
+        --color-chart-1: hsl(220 70% 50%);
+        --color-chart-2: hsl(160 60% 45%);
+        --color-chart-3: hsl(30 80% 55%);
+        --color-chart-4: hsl(280 65% 60%);
+        --color-chart-5: hsl(340 75% 55%);
+
+        --color-success: hsl(142 71% 45% / 1);
+        --color-success-100: hsl(142 71% 45% / 1);
+        --color-success-90: hsl(142 71% 45% / 0.9);
+        --color-success-80: hsl(142 71% 45% / 0.8);
+        --color-success-50: hsl(142 71% 45% / 0.5);
+
+        --color-success-foreground: hsl(210 40% 98% / 1);
+        --color-success-foreground-100: hsl(210 40% 98% / 1);
+        --color-success-foreground-90: hsl(210 40% 98% / 0.9);
+        --color-success-foreground-80: hsl(210 40% 98% / 0.8);
+        --color-success-foreground-50: hsl(210 40% 98% / 0.5);
+
+        --color-warning: hsl(45 93% 47% / 1);
+        --color-warning-100: hsl(45 93% 47% / 1);
+        --color-warning-90: hsl(45 93% 47% / 0.9);
+        --color-warning-80: hsl(45 93% 47% / 0.8);
+        --color-warning-50: hsl(45 93% 47% / 0.5);
+        --color-warning-40: hsl(45 93% 47% / 0.4);
+        --color-warning-5: hsl(45 93% 47% / 0.05);
+
+        --color-warning-foreground: hsl(210 40% 98% / 1);
+        --color-warning-foreground-100: hsl(210 40% 98% / 1);
+        --color-warning-foreground-90: hsl(210 40% 98% / 0.9);
+        --color-warning-foreground-80: hsl(210 40% 98% / 0.8);
+
+        --color-orange: hsl(25 95% 53% / 1);
+        --color-orange-100: hsl(25 95% 53% / 1);
+        --color-orange-90: hsl(25 95% 53% / 0.9);
+        --color-orange-80: hsl(25 95% 53% / 0.8);
+        --color-orange-50: hsl(25 95% 53% / 0.5);
+
+        --color-purple: hsl(271 91% 65% / 1);
+        --color-purple-100: hsl(271 91% 65% / 1);
+        --color-purple-90: hsl(271 91% 65% / 0.9);
+        --color-purple-80: hsl(271 91% 65% / 0.8);
+        --color-purple-50: hsl(271 91% 65% / 0.5);
+
+        --color-lime: hsl(84 81% 44% / 1);
+        --color-lime-100: hsl(84 81% 44% / 1);
+        --color-lime-90: hsl(84 81% 44% / 0.9);
+        --color-lime-80: hsl(84 81% 44% / 0.8);
+        --color-lime-50: hsl(84 81% 44% / 0.5);
 }
 
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+@layer base {
+    html {
+        overflow: hidden;
+        height: 100%;
+    }
+    * {
+        scrollbar-color: var(--muted-100) var(--muted-20);
+    }
+    body {
+        background-color: var(--background-100);
+        color: var(--foreground-100);
+        font-family: 'Satoshi', sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        font-weight: 100;
+        min-height: 100vh;
+    }
+    #root {
+        min-height: 100vh;
+    }
+    .markdown-styles ul,
+    .markdown-styles ol {
+        list-style: revert;
+    }
+
+    .markdown-styles li {
+        margin-left: 0.75rem;
+    }
 }
 
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-} */
+@layer utilities {
+    h1,
+    .h1 {
+        font-family: 'Satoshi-Bold', sans-serif;
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+        letter-spacing: 0.72px;
+    }
+    h2,
+    .h2 {
+        font-family: 'Satoshi-Bold', sans-serif;
+        font-size: 1.875rem;
+        line-height: 2.25rem;
+        letter-spacing: 0.3px;
+    }
+    h3,
+    .h3 {
+        font-family: 'Satoshi-Bold', sans-serif;
+        font-size: 1.5rem;
+        line-height: 2.25rem;
+    }
+    h4,
+    .h4 {
+        font-family: 'Satoshi-Medium', sans-serif;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+    p,
+    .p {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+    blockquote,
+    .blockquote {
+        font-family: 'Satoshi-Italic', sans-serif;
+        font-size: 1rem;
+        font-style: italic;
+        line-height: 1.75rem;
+    }
+    th,
+    .th {
+        font-family: 'Satoshi-Medium', sans-serif;
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+    td,
+    .td {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+    li,
+    .li {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 1rem;
+        line-height: 1.75rem;
+    }
+    code,
+    .code {
+        font-family: 'Satoshi-Medium', sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+    small,
+    .small {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+    }
+    .lead {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+    .large {
+        font-family: 'Satoshi-Medium', sans-serif;
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+    .muted {
+        font-family: 'Satoshi', sans-serif;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        color: var(--muted-foreground-100);
+    }
+}
